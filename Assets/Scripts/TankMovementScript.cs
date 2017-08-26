@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class TankMovementScript : MonoBehaviour {
 
-	public GameObject projectilePrototype;
+	private enum TankState {
+		alive, 
+		dead
+	};
+
+	static float canonLength = 1.8f;
+	static float fadeRate = 1.0f;
+	static float fireDelay = 1.0f;
+	static float healthInit = 1.0f;
+	static float maxAccel = 1.0f;
+	static float maxSpeed = 1.0f;
+	static float timeVisibleInit = 1.0f;
+
 	public KeyCode forwardKey;
 	public KeyCode backwardKey;
 	public KeyCode leftKey;
 	public KeyCode rightKey;
 	public KeyCode fireKey;
 	public Vector3 colour = new Vector3 (1.0f, 1.0f, 1.0f);
+	public GameObject projectilePrototype;
+	public float alphaLevel;
 
+	private float angle;
+	private float tFire;
+	private float health;
+	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
 	private GameObject projectile;
 
-	static float epsilonSpeed = 0.01f;
-	static float maxSpeed = 1.0f;
-	static float maxAccel = 1.0f;
-	static float maxDragAccel = 0.5f;
-	static float fadeRate = 1.0f;
-	static float timeVisibleInit = 1.0f;
-	static float fireDelay = 1.0f;
-	static float canonLength = 1.0f;
-	float accel;
-	Vector2 dir;
-	Vector2 pos;
-	Vector2 force;
-	float torque;
-	float angle;
-	float tFire;
-	public float alphaLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -39,23 +41,32 @@ public class TankMovementScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 
-		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
-		dir   = new Vector2 (Mathf.Cos (angle), Mathf.Sin (angle));
-		pos   = transform.position;
+		state = TankState.alive;
 		alphaLevel = 1.0f;
-		tFire = 0.0f;
+		health     = healthInit;
+		tFire      = 0.0f;;
+		angle      = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
 		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
 	}
-	
+
+
 	// Update is called once per frame
 	void FixedUpdate () {
+
+	    // If tank is dead, then set to dead colour
+		if (state == TankState.dead) {
+			colour = new Vector3 (0.1f, 0.1f, 0.1f);
+			spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
+			return;
+		}
+			
 		float dt = Time.fixedDeltaTime;
 		float t = Time.time;
+		float torque = 0.0f;
+		float accel = 0.0f;
 
 		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
-		dir   = new Vector2 (Mathf.Cos (angle), Mathf.Sin (angle));
-
-		Debug.Log ("angle : " + angle + "   " + Mathf.Rad2Deg*angle);
+		Vector3 dir = new Vector3 (Mathf.Cos (angle), Mathf.Sin (angle), 0.0f);
 
 		// Compute torques
 		if (Input.GetKey (leftKey)) {
@@ -78,7 +89,7 @@ public class TankMovementScript : MonoBehaviour {
 		}
 
 		// Compute force to drive tank forward
-		force = accel*dir;
+		Vector3 force = accel*dir;
 
 		// Only allow a torque to rotate the tank when the tank is moving
 		torque = accel * torque;
@@ -91,8 +102,8 @@ public class TankMovementScript : MonoBehaviour {
 		if (t - tFire > fireDelay && Input.GetKey (fireKey)) {
 			alphaLevel = 1.0f;
 			tFire = t;
-			projectile = Instantiate (projectilePrototype, transform.position, transform.rotation);
-			projectile.transform.rotation = transform.rotation;
+			projectile = Instantiate (projectilePrototype, transform.position + canonLength*dir, transform.rotation);
+			//projectile.transform.rotation = transform.rotation;
 		}
 
 		// After initial visible time, fade tank
@@ -104,8 +115,18 @@ public class TankMovementScript : MonoBehaviour {
 	
 	}
 
+
 	public void MakeVisible() {
 		alphaLevel += 0.5f;
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
+	}
+
+
+	public void Damage(float damage) {
+		health -= damage;
+		if (health <= 0.0f) {
+			Debug.Log ("DEAD!");
+			state = TankState.dead;
+		}
 	}
 }
