@@ -13,7 +13,8 @@ public class ObstacleColli : MonoBehaviour {
 		if(other.gameObject.tag == "Tank")
 		{
 			obst.isShaking = true;
-
+			TankMovementScript tankScript = other.gameObject.GetComponent<TankMovementScript> ();
+			tankScript.MakeVisible ();
 		}	
 	}
 
@@ -32,6 +33,8 @@ public class ObstacleColli : MonoBehaviour {
 		{
 
 			obst.isShaking = true;
+			TankMovementScript tankScript = collision.gameObject.GetComponent<TankMovementScript> ();
+			tankScript.MakeVisible ();
 
 		}	
 	}

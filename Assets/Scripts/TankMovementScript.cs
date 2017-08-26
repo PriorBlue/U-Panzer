@@ -87,4 +87,9 @@ public class TankMovementScript : MonoBehaviour {
 		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
 	
 	}
+
+	public void MakeVisible() {
+		alphaLevel += 0.5f;
+		alphaLevel = Mathf.Max (0.0f, alphaLevel);
+	}
 }
