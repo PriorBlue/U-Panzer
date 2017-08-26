@@ -57,9 +57,16 @@ MonoBehaviour:
   - Color: {r: 0, g: 1, b: 0, a: 1}
     Sprite: {fileID: 21300000, guid: 2369d514f21fd4b4c8796fecf4dfdd0c, type: 3}
     Collision: 0
+    Obstacle: {fileID: 0}
   - Color: {r: 0, g: 0, b: 1, a: 1}
     Sprite: {fileID: 21300002, guid: 2369d514f21fd4b4c8796fecf4dfdd0c, type: 3}
     Collision: 0
+    Obstacle: {fileID: 0}
   - Color: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
-    Sprite: {fileID: 21300004, guid: 2369d514f21fd4b4c8796fecf4dfdd0c, type: 3}
+    Sprite: {fileID: 21300000, guid: 2369d514f21fd4b4c8796fecf4dfdd0c, type: 3}
     Collision: 1
+    Obstacle: {fileID: 1155878144827088, guid: 696575fdf6cbf44f9b2c35ef912cef73, type: 2}
+  - Color: {r: 0, g: 0.49803922, b: 0, a: 1}
+    Sprite: {fileID: 21300000, guid: 2369d514f21fd4b4c8796fecf4dfdd0c, type: 3}
+    Collision: 1
+    Obstacle: {fileID: 1880332511937654, guid: 58491af8e6c4b7d4580bd66332bbeaf6, type: 2}

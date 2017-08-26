@@ -15,9 +15,9 @@ public class MapGenerator : MonoBehaviour
         public Color Color;
         public Sprite Sprite;
         public bool Collision;
+        public GameObject Obstacle;
     }
 
-    // Use this for initialization
     void Start()
     {
         for(var i = 0; i < transform.childCount; i++)
@@ -36,15 +36,15 @@ public class MapGenerator : MonoBehaviour
                 var conf = TileSettings.FirstOrDefault(it => it.Color.r == color.r && it.Color.g == color.g && it.Color.b == color.b);
 
                 tile.GetComponent<SpriteRenderer>().sprite = conf.Sprite;
+
+                if(conf.Obstacle != null)
+                {
+                    var obstacle = Instantiate(conf.Obstacle, tile.transform);
+                    obstacle.transform.localPosition = Vector3.zero;
+                }
             }
         }
 
         transform.position = new Vector3((Map.width - 1) * -0.5f, (Map.height - 3) * -0.5f, 0f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
