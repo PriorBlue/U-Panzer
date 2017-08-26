@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TankMovementScript : MonoBehaviour {
 
+	public KeyCode forwardKey;
+	public KeyCode backwardKey;
+	public KeyCode leftKey;
+	public KeyCode rightKey;
+	public KeyCode fireKey;
+
 	public Vector3 colour = new Vector3 (1.0f, 1.0f, 1.0f);
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
@@ -45,10 +51,10 @@ public class TankMovementScript : MonoBehaviour {
 		Debug.Log ("angle : " + angle + "   " + Mathf.Rad2Deg*angle);
 
 		// Compute torques
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (leftKey)) {
 			torque = 1.0f;
 		}
-		else if (Input.GetKey (KeyCode.D)) {
+		else if (Input.GetKey (rightKey)) {
 			torque = -1.0f;
 		}
 		else {
@@ -56,9 +62,9 @@ public class TankMovementScript : MonoBehaviour {
 		}
 
 		// Compute forward
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (forwardKey)) {
 			accel = maxAccel;
-		} else if (Input.GetKey (KeyCode.S)) {
+		} else if (Input.GetKey (backwardKey)) {
 			accel = -maxAccel;
 		} else {
 			accel = 0.0f;
@@ -75,7 +81,7 @@ public class TankMovementScript : MonoBehaviour {
 		rb.AddTorque(torque);
 
 		// Make tank visible if canon is fired
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (fireKey)) {
 			alphaLevel = 1.0f;
 		}
 
