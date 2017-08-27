@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class InvisibilityScript : MonoBehaviour {
 
-	private GameObject tank;
+    public TankMovementScript tankScript;
+    public SpriteRenderer spriteRenderer;
+
+    private GameObject tank;
 	private Vector3 colour;
 	private float alphaLevel;
-	private SpriteRenderer spriteRenderer;
-	private TankMovementScript tankScript;
 
 	// Use this for initialization
 	void Start () {
 
-		spriteRenderer = GetComponent<SpriteRenderer> ();
-
 		tank = transform.root.gameObject;
-		tankScript = tank.GetComponent<TankMovementScript> ();
 		colour = new Vector3 (tankScript.colour.r, tankScript.colour.g, tankScript.colour.b);
 		alphaLevel = tankScript.alphaLevel;
 		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);

@@ -36,7 +36,7 @@ public class MapGenerator : MonoBehaviour
                 tile.transform.localScale = new Vector3(UnitSize, UnitSize, UnitSize);
 
                 var color = Map.GetPixel(k, i);
-                var conf = TileSettings.FirstOrDefault(it => it.Color.r == color.r && it.Color.g == color.g && it.Color.b == color.b);
+                var conf = TileSettings.FirstOrDefault(it => it.Color == color);
 
                 tile.GetComponent<SpriteRenderer>().sprite = conf.Sprite;
 

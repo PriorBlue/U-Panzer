@@ -31,9 +31,10 @@ public class TankMovementScript : MonoBehaviour {
 	static float canonLength = 1.8f;
 	static float fadeRate = 1.0f;
 	static float healthInit = 1.0f;
-	static float maxAccel = 1.0f;
-	static float maxSpeed = 1.0f;
-	static float timeVisibleInit = 1.0f;
+    public float maxAccel = 1.0f;
+    public float maxTorque = 1.0f;
+
+    static float timeVisibleInit = 1.0f;
 
 	public AudioClip tankDestroyedAudio;
 	public AudioClip tankHitAudio;
@@ -88,10 +89,10 @@ public class TankMovementScript : MonoBehaviour {
 
 		// Compute torques
 		if (Input.GetKey (leftKey)) {
-			torque = 1.0f;
+			torque = maxTorque;
 		}
 		else if (Input.GetKey (rightKey)) {
-			torque = -1.0f;
+			torque = -maxTorque;
 		}
 		else {
 			torque = 0.0f;
@@ -134,9 +135,18 @@ public class TankMovementScript : MonoBehaviour {
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
 		spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
 
-        
-	
-	}
+        Hitable HitableComp = gameObject.GetComponent<Hitable>();
+        Color HC = HitableComp.ShieldHalo.color;
+        if (HitableComp.shield < 100) { HC.a = HitableComp.shield; }
+        if (HitableComp.shield >= 100) { HC.a = 100; }
+        if (HitableComp.shield < 1) { HC.a = 0; }
+        if (HC.a > alphaLevel) { HC.a = alphaLevel; }
+       
+        HitableComp.ShieldHalo.color = HC;
+
+        if (alphaLevel == 0) { HitableComp.enabled = false; } else HitableComp.enabled = true;
+
+    }
 
 
 	public void HitByProjectile() {
