@@ -60,9 +60,13 @@ public class impact : MonoBehaviour {
             }
             else
             {
-                tankScript.Destruction();
+                if (other.gameObject.tag == "Tank")
+                {
+                    tankScript.Destruction();
+                }
+                else Destroy(other.gameObject);
             }
-
+            
             Destroy(transform.root.gameObject);
 
         }
