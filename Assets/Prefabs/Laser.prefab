@@ -187,8 +187,8 @@ MonoBehaviour:
   speed: 10
   damage: 40
   healthmod: 1
-  armormod: 0.2
-  shieldmod: 2
+  armormod: 1.4
+  shieldmod: 0.2
 --- !u!114 &114548738756978846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,4 +257,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

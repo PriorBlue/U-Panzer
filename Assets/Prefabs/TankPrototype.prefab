@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 61828397089378944}
   - component: {fileID: 50586315454718464}
   - component: {fileID: 114442722536995866}
+  - component: {fileID: 114899692789996556}
   m_Layer: 0
   m_Name: TankPrototype
   m_TagString: Tank
@@ -272,6 +273,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e514d8f5666c44db4ebd13de5e2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114899692789996556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768140427034746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6d6621d26170d4e86816b0747d8e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  armor: 0
+  shield: 0
 --- !u!212 &212001491463996864
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -313,7 +328,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212135417926019390
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -355,7 +369,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212562646415623988
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -397,7 +410,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212563643897281440
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -439,4 +451,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
