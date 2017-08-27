@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthState : MonoBehaviour {
 
@@ -9,12 +10,12 @@ public class HealthState : MonoBehaviour {
     public float MaxHealth = 100;
 
 
-    private UnityEngine.UI.Slider slider;
+    private Slider slider;
 
     // Use this for initialization
     void Start ()
     {
-        slider = GetComponentInParent<UnityEngine.UI.Slider>();		
+        slider = GetComponentInParent<Slider>();		
 	}
 
 

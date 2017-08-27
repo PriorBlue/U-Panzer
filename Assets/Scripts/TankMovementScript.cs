@@ -54,7 +54,7 @@ public class TankMovementScript : MonoBehaviour {
 	void Start () {
 		rb                   = GetComponent<Rigidbody2D> ();
 		spriteRenderer       = GetComponent<SpriteRenderer> ();
-		CurrentProjectile       = ProjectileType.Std;
+		CurrentProjectile    = ProjectileType.Std;
 		state                = TankState.alive;
 		alphaLevel           = 1.0f;
 		tFire                = 0.0f;
@@ -69,7 +69,7 @@ public class TankMovementScript : MonoBehaviour {
 	    // If tank is dead, then set to dead colour
 		if (state == TankState.dead) {
 			colour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-			spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
+			spriteRenderer.color = Color.gray;
 			return;
 		}
 			
