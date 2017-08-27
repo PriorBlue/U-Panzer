@@ -144,7 +144,7 @@ public class TankMovementScript : MonoBehaviour {
        
         HitableComp.ShieldHalo.color = HC;
 
-        if (alphaLevel == 0) { HitableComp.enabled = false; } else HitableComp.enabled = true;
+        if (alphaLevel < 1) { HitableComp.enabled = false; } else HitableComp.enabled = true;
 
     }
 
