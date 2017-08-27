@@ -22,10 +22,11 @@ public class impact : MonoBehaviour {
 
         if (other.gameObject.tag == "Tank")
         {
-            // obst.isShaking = true;
             tankScript.HitByProjectile();
         }
         
+
+        // resolve hit
         Hitable HitableComp  = other.gameObject.GetComponent<Hitable>();
         float damageRemain = Ballisitcs.damage;
 
@@ -58,11 +59,13 @@ public class impact : MonoBehaviour {
             {
                 if (other.gameObject.tag == "Tank")
                 {
+                    // Destroy tanks
                     tankScript.Destruction();
                 }
                 else Destroy(other.gameObject);
             }
             
+            // Destroy Projectile
             Destroy(transform.root.gameObject);
 
         }
