@@ -220,6 +220,9 @@ MonoBehaviour:
   health: 100
   armor: 0
   shield: 0
+  ObjToRemove: {fileID: 1880332511937654}
+  ShieldHalo: {fileID: 108095735568440030, guid: f8b5ccb27d44ea54fb2b429b2da85e71,
+    type: 2}
 --- !u!212 &212943007647796212
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -261,4 +264,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0

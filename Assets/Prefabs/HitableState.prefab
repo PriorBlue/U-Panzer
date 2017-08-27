@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 114309686387911838}
   - component: {fileID: 114915284941673428}
   m_Layer: 5
-  m_Name: HealthState
+  m_Name: HitableState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hitable: {fileID: 0}
-  MaxHealth: 100
+  MaxValue: 100
+  Property: 0
 --- !u!222 &222426283980551256
 CanvasRenderer:
   m_ObjectHideFlags: 1

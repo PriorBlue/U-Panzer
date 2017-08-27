@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 114442722536995866}
   - component: {fileID: 114899692789996556}
   - component: {fileID: 82108343464549924}
-  - component: {fileID: 108752484924078416}
   m_Layer: 0
   m_Name: TankPrototype
   m_TagString: Tank
@@ -293,42 +292,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!108 &108752484924078416
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768140427034746}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 2.96484
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!114 &114080804243139372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +370,8 @@ MonoBehaviour:
   armor: 0
   shield: 0
   ObjToRemove: {fileID: 1768140427034746}
+  ShieldHalo: {fileID: 108095735568440030, guid: f8b5ccb27d44ea54fb2b429b2da85e71,
+    type: 2}
 --- !u!212 &212001491463996864
 SpriteRenderer:
   m_ObjectHideFlags: 1
