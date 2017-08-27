@@ -260,6 +260,7 @@ MonoBehaviour:
   fireKey: 32
   colour: {x: 1, y: 1, z: 1}
   alphaLevel: 0
+  projectileType: 0
 --- !u!114 &114874287316455666
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,6 +11,7 @@ public class ProjectileMove : MonoBehaviour {
 
 	private float angle;
 	private Vector3 dir;
+	private AudioSource audioSource;
 
 
     // Use this for initialization
@@ -19,6 +20,12 @@ public class ProjectileMove : MonoBehaviour {
 		// Set speed of projectile
 		ballistic = GetComponent<BallisticProps> ();
 		speed = ballistic.speed;
+
+		// Play sound of projectile shooting
+		audioSource = GetComponent<AudioSource>();
+		AudioClip audioClip = ballistic.audioClip;
+		audioSource.PlayOneShot (audioClip);
+		Debug.Log ("Playing audio clip : ");
 
 		// Set mass of projectile
 		rb = GetComponent<Rigidbody2D>();
