@@ -62,9 +62,11 @@ public class impact : MonoBehaviour {
             {
                 tankScript.Destruction();
             }
+
+            Destroy(transform.root.gameObject);
+
         }
 
-        Destroy(transform.root.gameObject);
 
     }
 
