@@ -6,6 +6,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour {
 
     public SpriteRenderer Sprite;
+    public ParticleSystem Particle;
 
     [Range(0, 10)]
     public float FadeOutTime_sec = 1.0f;
@@ -45,6 +46,7 @@ public class Powerup : MonoBehaviour {
         {
             fadeOutTime_sec_current = FadeOutTime_sec;
             isHit = true;
+            Particle.Stop();
         }
     }
 
