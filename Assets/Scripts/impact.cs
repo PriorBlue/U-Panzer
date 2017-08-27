@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class impact : MonoBehaviour {
 
+
+
+    public BallisticProps Ballisitcs;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,8 +28,44 @@ public class impact : MonoBehaviour {
             tankScript.MakeVisible();
 
         }
+        
+        Hitable HitableComp  = other.gameObject.GetComponent<Hitable>();
+        float damageRemain = Ballisitcs.damage;
+
+        if (HitableComp != null)
+        {
+            if (HitableComp.shield > damageRemain * Ballisitcs.shieldmod)
+            { HitableComp.shield -= damageRemain * Ballisitcs.shieldmod; }
+            else
+            {
+                float full = HitableComp.shield / Ballisitcs.shieldmod;
+                HitableComp.shield = 0.0f;
+                damageRemain -= full;
+            }
 
 
+            if (HitableComp.armor > damageRemain * Ballisitcs.armormod)
+            { HitableComp.armor -= damageRemain * Ballisitcs.armormod; }
+            else
+            {
+                float full = HitableComp.armor / Ballisitcs.armormod;
+                HitableComp.armor = 0.0f;
+                damageRemain -= full;
+            }
+
+
+            if (HitableComp.health > damageRemain * Ballisitcs.healthmod)
+            { HitableComp.shield -= damageRemain * Ballisitcs.healthmod; }
+            else
+            {
+                
+
+
+            }
+
+
+
+        }
 
         Destroy(transform.root.gameObject);
 
