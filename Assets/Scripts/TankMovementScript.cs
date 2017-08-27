@@ -30,7 +30,6 @@ public class TankMovementScript : MonoBehaviour {
 
 	static float canonLength = 1.8f;
 	static float fadeRate = 1.0f;
-	static float fireDelay = 1.0f;
 	static float healthInit = 1.0f;
 	static float maxAccel = 1.0f;
 	static float maxSpeed = 1.0f;
@@ -48,6 +47,7 @@ public class TankMovementScript : MonoBehaviour {
 
 	private float angle;
 	private float tFire;
+	private float fireDelay;
 	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
@@ -64,6 +64,7 @@ public class TankMovementScript : MonoBehaviour {
 		tFire                = 0.0f;
 		angle                = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
 		spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
+		SetFireDelay ();
 	}
 
 
@@ -132,6 +133,8 @@ public class TankMovementScript : MonoBehaviour {
 		}
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
 		spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
+
+        
 	
 	}
 
@@ -155,4 +158,12 @@ public class TankMovementScript : MonoBehaviour {
 			audioSource.PlayOneShot (tankDestroyedAudio);
 		}
     }
+
+
+	public void SetFireDelay()
+	{
+		GameObject projectile = ProjectilePrototypes.FirstOrDefault (it => it.Type == CurrentProjectile).Prefab;
+		BallisticProps ballistic = projectile.GetComponent<BallisticProps> ();
+		fireDelay = ballistic.fireDelay;
+	}
 }

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: ca6d6621d26170d4e86816b0747d8e5b
-timeCreated: 1503824925
+timeCreated: 1503845577
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ObjToRemove: {instanceID: 0}
+  - ShieldHalo: {fileID: 108095735568440030, guid: f8b5ccb27d44ea54fb2b429b2da85e71,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

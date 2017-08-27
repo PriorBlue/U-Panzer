@@ -30,6 +30,7 @@ public class Powerup : MonoBehaviour {
         {
             powerupActivated = true;
             tankMovementScript.CurrentProjectile = ProjectileType;
+			tankMovementScript.SetFireDelay ();
         }
 
         var hitable = other.gameObject.GetComponent<Hitable>();
