@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822b1011cb1471e4d84ab640d674ef88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tankHitAudio: {fileID: 8300000, guid: 05b374f2a399c47769dddddab9bddf27, type: 3}
   Ballisitcs: {fileID: 114205626289684284}
 --- !u!212 &212727587042777914
 SpriteRenderer:
@@ -257,3 +258,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
