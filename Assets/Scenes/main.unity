@@ -406,7 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hitable: {fileID: 0}
-  MaxHealth: 100
+  MaxValue: 100
+  Property: 0
 --- !u!1 &1014467893
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,4 +826,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hitable: {fileID: 0}
-  MaxHealth: 100
+  MaxValue: 100
+  Property: 0
