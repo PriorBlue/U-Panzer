@@ -23,22 +23,29 @@ public class Powerup : MonoBehaviour {
             return;
         }
 
+        var powerupActivated = false;
+
         var tankMovementScript = other.gameObject.GetComponent<TankMovementScript>();
         if (tankMovementScript != null)
         {
-            tankMovementScript.projectileType = ProjectileType;
+            powerupActivated = true;
+            tankMovementScript.CurrentProjectile = ProjectileType;
         }
 
         var hitable = other.gameObject.GetComponent<Hitable>();
         if (hitable != null)
         {
+            powerupActivated = true;
             hitable.health += Health;
             hitable.armor += Armor;
             hitable.shield += Shield;
         }
 
-        fadeOutTime_sec_current = FadeOutTime_sec;
-        isHit = true;
+        if (powerupActivated)
+        {
+            fadeOutTime_sec_current = FadeOutTime_sec;
+            isHit = true;
+        }
     }
 
 
