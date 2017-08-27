@@ -243,8 +243,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecceae473f229437ca7c6e59c49ef6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrototypes:
-  - {fileID: 1208612727347176, guid: 869c0f870b9ebfd48b27c9bc85fe6d0d, type: 2}
+  CurrentProjectile: 0
+  ProjectilePrototypes:
+  - Type: 0
+    Prefab: {fileID: 1814928401712532, guid: 9f3dfae671a57554f8ed458ec0e7fdb2, type: 2}
+  - Type: 1
+    Prefab: {fileID: 1152341663580896, guid: 3a5f49cc87927b342b50a7a7253debfe, type: 2}
+  - Type: 2
+    Prefab: {fileID: 1795859161593018, guid: fabcf37013b302e488c69625b76e4e53, type: 2}
+  - Type: 3
+    Prefab: {fileID: 1230116160004968, guid: cb862731d73282b4b95fe5703dc23f92, type: 2}
   forwardKey: 119
   backwardKey: 115
   leftKey: 97
