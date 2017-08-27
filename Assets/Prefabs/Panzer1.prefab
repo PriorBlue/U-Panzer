@@ -67,6 +67,15 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/TankPrototype.prefab
+  - component: {fileID: 4338243498139354}
+  - component: {fileID: 212135417926019390}
+  - component: {fileID: 61828397089378944}
+  - component: {fileID: 50586315454718464}
+  - component: {fileID: 114442722536995866}
+  - component: {fileID: 114899692789996556}
+  - component: {fileID: 82108343464549924}
+=======
   - component: {fileID: 4516575817852446}
   - component: {fileID: 212692362737113536}
   - component: {fileID: 61986847609713288}
@@ -74,6 +83,7 @@ GameObject:
   - component: {fileID: 114977889388561798}
   - component: {fileID: 114205387476313472}
   - component: {fileID: 82046362851459548}
+>>>>>>> 7350c5857a0a427c641597d59b6b8dbef5a6bd78:Assets/Prefabs/Panzer1.prefab
   m_Layer: 0
   m_Name: Panzer1
   m_TagString: Tank
@@ -292,6 +302,9 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+<<<<<<< HEAD:Assets/Prefabs/TankPrototype.prefab
+--- !u!114 &114080804243139372
+=======
 --- !u!114 &114205387476313472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +322,7 @@ MonoBehaviour:
   ObjToRemove: {fileID: 0}
   ShieldHalo: {fileID: 0}
 --- !u!114 &114229167091685016
+>>>>>>> 7350c5857a0a427c641597d59b6b8dbef5a6bd78:Assets/Prefabs/Panzer1.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -379,7 +393,39 @@ MonoBehaviour:
   fireKey: 32
   colour: {r: 0, g: 1, b: 1, a: 1}
   alphaLevel: 0
+<<<<<<< HEAD:Assets/Prefabs/TankPrototype.prefab
+--- !u!114 &114874287316455666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1072030656329742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e514d8f5666c44db4ebd13de5e2c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114899692789996556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768140427034746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6d6621d26170d4e86816b0747d8e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  armor: 0
+  shield: 0
+  ObjToRemove: {fileID: 1768140427034746}
+  ShieldHalo: {fileID: 108095735568440030, guid: f8b5ccb27d44ea54fb2b429b2da85e71,
+    type: 2}
+--- !u!212 &212001491463996864
+=======
 --- !u!212 &212136556579789156
+>>>>>>> 7350c5857a0a427c641597d59b6b8dbef5a6bd78:Assets/Prefabs/Panzer1.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
