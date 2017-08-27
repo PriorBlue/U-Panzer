@@ -140,5 +140,9 @@ public class TankMovementScript : MonoBehaviour {
 		alphaLevel += 0.5f;
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
 	}
-		
+
+    public void Destruction()
+    {
+        state = TankState.dead;
+    }
 }
