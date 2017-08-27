@@ -38,9 +38,9 @@ public class impact : MonoBehaviour {
             { HitableComp.shield -= damageRemain * Ballisitcs.shieldmod; }
             else
             {
-                float full = HitableComp.shield / Ballisitcs.shieldmod;
+                float absorb = HitableComp.shield / Ballisitcs.shieldmod;
                 HitableComp.shield = 0.0f;
-                damageRemain -= full;
+                damageRemain -= absorb;
             }
 
 
@@ -48,9 +48,9 @@ public class impact : MonoBehaviour {
             { HitableComp.armor -= damageRemain * Ballisitcs.armormod; }
             else
             {
-                float full = HitableComp.armor / Ballisitcs.armormod;
+                float absorb = HitableComp.armor / Ballisitcs.armormod;
                 HitableComp.armor = 0.0f;
-                damageRemain -= full;
+                damageRemain -= absorb;
             }
 
 
