@@ -29,7 +29,7 @@ public class Powerup : MonoBehaviour {
         if (tankMovementScript != null)
         {
             powerupActivated = true;
-            tankMovementScript.projectileType = ProjectileType;
+            tankMovementScript.CurrentProjectile = ProjectileType;
         }
 
         var hitable = other.gameObject.GetComponent<Hitable>();
