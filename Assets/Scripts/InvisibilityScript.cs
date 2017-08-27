@@ -17,7 +17,7 @@ public class InvisibilityScript : MonoBehaviour {
 
 		tank = transform.root.gameObject;
 		tankScript = tank.GetComponent<TankMovementScript> ();
-		colour = new Vector3 (tankScript.colour.x, tankScript.colour.y, tankScript.colour.z);
+		colour = new Vector3 (tankScript.colour.r, tankScript.colour.g, tankScript.colour.b);
 		alphaLevel = tankScript.alphaLevel;
 		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
 
@@ -26,7 +26,7 @@ public class InvisibilityScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		colour = new Vector3 (tankScript.colour.x, tankScript.colour.y, tankScript.colour.z);
+		colour = new Vector3 (tankScript.colour.r, tankScript.colour.g, tankScript.colour.b);
 		alphaLevel = tankScript.alphaLevel;
 		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
 

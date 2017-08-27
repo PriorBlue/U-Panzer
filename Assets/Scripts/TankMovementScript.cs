@@ -41,7 +41,7 @@ public class TankMovementScript : MonoBehaviour {
 	public KeyCode leftKey;
 	public KeyCode rightKey;
 	public KeyCode fireKey;
-	public Vector3 colour = new Vector3 (1.0f, 1.0f, 1.0f);
+	public Color colour = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 	public float alphaLevel;
 
 	private float angle;
@@ -49,21 +49,17 @@ public class TankMovementScript : MonoBehaviour {
 	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
-	public ProjectileType projectileType;
-
-
-
 
 	// Use this for initialization
 	void Start () {
 		rb                   = GetComponent<Rigidbody2D> ();
 		spriteRenderer       = GetComponent<SpriteRenderer> ();
-		projectileType       = ProjectileType.Std;
+		CurrentProjectile       = ProjectileType.Std;
 		state                = TankState.alive;
 		alphaLevel           = 1.0f;
 		tFire                = 0.0f;
 		angle                = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
-		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
+		spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
 	}
 
 
@@ -72,8 +68,8 @@ public class TankMovementScript : MonoBehaviour {
 
 	    // If tank is dead, then set to dead colour
 		if (state == TankState.dead) {
-			colour = new Vector3 (0.1f, 0.1f, 0.1f);
-			spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
+			colour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
 			return;
 		}
 			
@@ -131,7 +127,7 @@ public class TankMovementScript : MonoBehaviour {
 			alphaLevel -= fadeRate * dt;
 		}
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
-		spriteRenderer.color = new Color (colour.x, colour.y, colour.z, alphaLevel);
+		spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
 	
 	}
 
