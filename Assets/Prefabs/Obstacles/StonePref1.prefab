@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4024122533536890}
   - component: {fileID: 114750249763774796}
+  - component: {fileID: 114065598378635910}
   m_Layer: 0
   m_Name: StonePref1
   m_TagString: Untagged
@@ -175,6 +176,20 @@ PolygonCollider2D:
       - {x: 0.017571406, y: -0.53958684}
       - {x: 0.24806872, y: -0.46930087}
       - {x: 0.5059114, y: -0.21812862}
+--- !u!114 &114065598378635910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155878144827088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6d6621d26170d4e86816b0747d8e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 400
+  armor: 400
+  shield: 0
 --- !u!114 &114534991713919526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,4 +259,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
