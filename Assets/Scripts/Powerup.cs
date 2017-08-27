@@ -7,37 +7,50 @@ public class Powerup : MonoBehaviour {
 
     public SpriteRenderer Sprite;
 
-    public TankMovementScript.ProjectileType ProjectileType = TankMovementScript.ProjectileType.numTypes;
+    [Range(0, 10)]
+    public float FadeOutTime_sec = 1.0f;
+
+    public TankMovementScript.ProjectileType ProjectileType = TankMovementScript.ProjectileType.Std;
+
+    public float Health = 0;
+    public float Armor = 0;
+    public float Shield = 0;
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isDestroyed)
+        if (isHit)
         {
             return;
         }
 
         var tankMovementScript = other.gameObject.GetComponent<TankMovementScript>();
-        if (tankMovementScript == null)
-            return;
+        if (tankMovementScript != null)
+        {
+            tankMovementScript.projectileType = ProjectileType;
+        }
 
-        tankMovementScript.projectileType = ProjectileType;
-
+        var hitable = other.gameObject.GetComponent<Hitable>();
+        if (hitable != null)
+        {
+            hitable.health += Health;
+            hitable.armor += Armor;
+            hitable.shield += Shield;
+        }
 
         fadeOutTime_sec_current = FadeOutTime_sec;
-        isDestroyed = true;
+        isHit = true;
     }
 
 
-    private bool isDestroyed = false;
-    [Range(0, 10)]
-    public float FadeOutTime_sec = 1.0f;
+    private bool isHit = false;
     private float fadeOutTime_sec_current = 0.0f;
 
     private void Update()
     {
         if (Sprite == null) return;
 
-        if (isDestroyed)
+        if (isHit)
         {
             var alpha = fadeOutTime_sec_current / FadeOutTime_sec;
 
