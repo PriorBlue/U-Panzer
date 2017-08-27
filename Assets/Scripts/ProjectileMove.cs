@@ -17,7 +17,16 @@ public class ProjectileMove : MonoBehaviour {
     {
 		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
 		dir   = new Vector3 (Mathf.Cos (angle), Mathf.Sin (angle), 0.0f);
+		Debug.Log ("Projectile : " + dir);
     }
+
+	// Use this for initialization
+	void Awake()
+	{
+		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
+		dir   = new Vector3 (Mathf.Cos (angle), Mathf.Sin (angle), 0.0f);
+		Debug.Log ("Projectile : " + dir);
+	}
 		
 
     // Update is called once per frame
