@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TankMovementScript : MonoBehaviour {
 
@@ -11,10 +12,21 @@ public class TankMovementScript : MonoBehaviour {
 
 	public enum ProjectileType
 	{
-		basic,
-		numTypes
+		Std,
+		AP,
+        HE,
+        Hvy
 	};
-	public GameObject[] projectilePrototypes;
+
+    [System.Serializable]
+    public struct Projectile
+    {
+        public ProjectileType Type;
+        public GameObject Prefab;
+    }
+
+    public ProjectileType CurrentProjectile = ProjectileType.Std;
+    public List<Projectile> ProjectilePrototypes;
 
 	static float canonLength = 1.8f;
 	static float fadeRate = 1.0f;
@@ -37,7 +49,7 @@ public class TankMovementScript : MonoBehaviour {
 	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
-	private ProjectileType projectileType;
+	public ProjectileType projectileType;
 
 
 
@@ -46,7 +58,7 @@ public class TankMovementScript : MonoBehaviour {
 	void Start () {
 		rb                   = GetComponent<Rigidbody2D> ();
 		spriteRenderer       = GetComponent<SpriteRenderer> ();
-		projectileType       = ProjectileType.basic;
+		projectileType       = ProjectileType.Std;
 		state                = TankState.alive;
 		alphaLevel           = 1.0f;
 		tFire                = 0.0f;
@@ -109,8 +121,7 @@ public class TankMovementScript : MonoBehaviour {
 			tFire = t;
 
 			// Create projectile instance
-			int iprojectile = (int) projectileType;
-			Instantiate (projectilePrototypes[iprojectile], 
+			Instantiate (ProjectilePrototypes.FirstOrDefault(it => it.Type == CurrentProjectile).Prefab,
 				         transform.position + canonLength*dir, 
 				         transform.rotation);
 		}
@@ -129,5 +140,9 @@ public class TankMovementScript : MonoBehaviour {
 		alphaLevel += 0.5f;
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
 	}
-		
+
+    public void Destruction()
+    {
+        state = TankState.dead;
+    }
 }

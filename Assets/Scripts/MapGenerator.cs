@@ -8,6 +8,7 @@ public class MapGenerator : MonoBehaviour
     public Texture2D Map;
     public GameObject Tile;
     public List<TileSetting> TileSettings;
+    public float UnitSize = 1f;
 
     [System.Serializable]
     public struct TileSetting
@@ -31,7 +32,7 @@ public class MapGenerator : MonoBehaviour
             for (var k = 0; k < Map.width; k++)
             {
                 var tile = Instantiate(Tile, transform);
-                tile.transform.position = new Vector3(k, i, 0f);
+                tile.transform.position = new Vector3(k * UnitSize, i * UnitSize, 0f);
 
                 var color = Map.GetPixel(k, i);
                 var conf = TileSettings.FirstOrDefault(it => it.Color.r == color.r && it.Color.g == color.g && it.Color.b == color.b);
