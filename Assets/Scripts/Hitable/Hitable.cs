@@ -8,6 +8,8 @@ public class Hitable : MonoBehaviour {
     public float health = 100.0f;
     public float armor = 0.0f;
     public float shield = 0.0f;
+    public GameObject ObjToRemove;
+    public Light ShieldHalo;
 
 
 	// Use this for initialization
