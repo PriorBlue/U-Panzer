@@ -59,7 +59,9 @@ public class impact : MonoBehaviour {
             else
             {
                 
-
+                // Explode!
+                // Burn in hell!
+                // Game over!
 
             }
 
