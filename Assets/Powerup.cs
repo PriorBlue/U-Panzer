@@ -7,7 +7,7 @@ public class Powerup : MonoBehaviour {
 
     public SpriteRenderer Sprite;
 
-    public TankMovementScript.ProjectileType ProjectileType = TankMovementScript.ProjectileType.numTypes;
+    public TankMovementScript.ProjectileType ProjectileType = TankMovementScript.ProjectileType.Std;
 
     void OnTriggerEnter2D(Collider2D other)
     {

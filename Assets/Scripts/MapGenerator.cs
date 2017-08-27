@@ -33,6 +33,7 @@ public class MapGenerator : MonoBehaviour
             {
                 var tile = Instantiate(Tile, transform);
                 tile.transform.position = new Vector3(k * UnitSize, i * UnitSize, 0f);
+                tile.transform.localScale = new Vector3(UnitSize, UnitSize, UnitSize);
 
                 var color = Map.GetPixel(k, i);
                 var conf = TileSettings.FirstOrDefault(it => it.Color.r == color.r && it.Color.g == color.g && it.Color.b == color.b);
@@ -52,6 +53,6 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        transform.position = new Vector3((Map.width - 1) * -0.5f, (Map.height - 3) * -0.5f, 0f);
+        transform.position = new Vector3((Map.width * UnitSize - 1) * -0.5f, (Map.height * UnitSize - 3) * -0.5f, 0f);
     }
 }
