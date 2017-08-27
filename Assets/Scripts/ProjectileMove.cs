@@ -25,6 +25,7 @@ public class ProjectileMove : MonoBehaviour {
 		audioSource = GetComponent<AudioSource>();
 		AudioClip audioClip = ballistic.audioClip;
 		audioSource.PlayOneShot (audioClip);
+		Debug.Log ("Playing audio clip : ");
 
 		// Set mass of projectile
 		rb = GetComponent<Rigidbody2D>();
