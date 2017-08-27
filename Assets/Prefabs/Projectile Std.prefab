@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114891750401736864}
   - component: {fileID: 114905355353898250}
   m_Layer: 0
-  m_Name: Projectile Std 1
+  m_Name: Projectile Std
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,9 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7793d43ea7b2a5446a53e8320eb80441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ridgidbody: {fileID: 0}
-  speed: 7
+  rb: {fileID: 0}
+  ballistic: {fileID: 0}
   lifetime: 500
+  speed: 7
 --- !u!114 &114891750401736864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95bf1f1fe8276c458a23d5d0727cdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mass: 0.1
+  speed: 10
   damage: 25
   healthmod: 1
   armormod: 0.2

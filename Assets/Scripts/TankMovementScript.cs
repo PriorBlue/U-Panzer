@@ -37,7 +37,7 @@ public class TankMovementScript : MonoBehaviour {
 	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
-	private ProjectileType projectileType;
+	public ProjectileType projectileType;
 
 
 
