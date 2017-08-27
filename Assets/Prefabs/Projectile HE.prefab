@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 05a20949a90ab40c79b5abddd5e32809, type: 3}
+  fireDelay: 0.5
   mass: 0.1
   speed: 10
   damage: 25
@@ -231,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822b1011cb1471e4d84ab640d674ef88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankHitAudio: {fileID: 8300000, guid: 05b374f2a399c47769dddddab9bddf27, type: 3}
   Ballisitcs: {fileID: 114070163407134270}
 --- !u!114 &114584044752280158
 MonoBehaviour:
