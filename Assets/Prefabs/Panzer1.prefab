@@ -306,8 +306,9 @@ MonoBehaviour:
   health: 100
   armor: 0
   shield: 0
-  ObjToRemove: {fileID: 0}
-  ShieldHalo: {fileID: 0}
+  ObjToRemove: {fileID: 1908422602607688}
+  ShieldHalo: {fileID: 108095735568440030, guid: f8b5ccb27d44ea54fb2b429b2da85e71,
+    type: 2}
 --- !u!114 &114229167091685016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,7 +421,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212692362737113536
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -462,7 +462,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212927292833175360
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -504,7 +503,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212940994010865106
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -546,4 +544,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
