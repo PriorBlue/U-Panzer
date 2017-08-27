@@ -8,6 +8,7 @@ public class ProjectileMove : MonoBehaviour {
 
     static float maxSpeed = 100.0f;
     public float speed = 10.0f;
+    public int lifetime = 500;
 	float angle;
 	Vector3 dir;
 
@@ -26,7 +27,8 @@ public class ProjectileMove : MonoBehaviour {
         speed = Mathf.Min(speed, maxSpeed);
         speed = Mathf.Max(speed, -maxSpeed);
         transform.position += speed * dt * dir;
-
+        lifetime -= 1;
+        if (lifetime<1) Destroy(transform.root.gameObject);
     }
 
 
