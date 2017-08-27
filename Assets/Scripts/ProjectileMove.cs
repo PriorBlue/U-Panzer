@@ -4,37 +4,36 @@ using UnityEngine;
 
 public class ProjectileMove : MonoBehaviour {
 
-    public Rigidbody2D Ridgidbody;
-
-    static float maxSpeed = 100.0f;
-    public float speed = 10.0f;
+    public Rigidbody2D rb;
+	public BallisticProps ballistic;
     public int lifetime = 500;
-	float angle;
-	Vector3 dir;
+	public float speed = 10.0f;
+
+	private float angle;
+	private Vector3 dir;
+
 
     // Use this for initialization
     void Start()
     {
-		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
-		dir   = new Vector3 (Mathf.Cos (angle), Mathf.Sin (angle), 0.0f);
-		Debug.Log ("Projectile : " + dir);
-    }
+		// Set speed of projectile
+		ballistic = GetComponent<BallisticProps> ();
+		speed = ballistic.speed;
 
-	// Use this for initialization
-	void Awake()
-	{
+		// Set mass of projectile
+		rb = GetComponent<Rigidbody2D>();
+		rb.mass = ballistic.mass;
+
+		// Set direction of projectile from transform angle
 		angle = Mathf.Deg2Rad*transform.rotation.eulerAngles.z;
 		dir   = new Vector3 (Mathf.Cos (angle), Mathf.Sin (angle), 0.0f);
-		Debug.Log ("Projectile : " + dir);
-	}
+    }
 		
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float dt = Time.fixedDeltaTime;
-        speed = Mathf.Min(speed, maxSpeed);
-        speed = Mathf.Max(speed, -maxSpeed);
         transform.position += speed * dt * dir;
         lifetime -= 1;
         if (lifetime<1) Destroy(transform.root.gameObject);

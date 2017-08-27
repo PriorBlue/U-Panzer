@@ -72,8 +72,8 @@ GameObject:
   - component: {fileID: 4338243498139354}
   - component: {fileID: 212135417926019390}
   - component: {fileID: 61828397089378944}
-  - component: {fileID: 114061350049041766}
   - component: {fileID: 50586315454718464}
+  - component: {fileID: 114442722536995866}
   m_Layer: 0
   m_Name: TankPrototype
   m_TagString: Tank
@@ -210,26 +210,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &114061350049041766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1768140427034746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecceae473f229437ca7c6e59c49ef6a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrototype: {fileID: 1727682215923112, guid: 090a5e57f059644e09e7848a8e1afe87,
-    type: 2}
-  forwardKey: 119
-  backwardKey: 115
-  leftKey: 97
-  rightKey: 100
-  fireKey: 32
-  colour: {x: 1, y: 0, z: 0}
-  alphaLevel: 0
 --- !u!114 &114080804243139372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +232,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e514d8f5666c44db4ebd13de5e2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114442722536995866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768140427034746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecceae473f229437ca7c6e59c49ef6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrototypes:
+  - {fileID: 1208612727347176, guid: 869c0f870b9ebfd48b27c9bc85fe6d0d, type: 2}
+  forwardKey: 119
+  backwardKey: 115
+  leftKey: 97
+  rightKey: 100
+  fireKey: 32
+  colour: {x: 1, y: 1, z: 1}
+  alphaLevel: 0
 --- !u!114 &114874287316455666
 MonoBehaviour:
   m_ObjectHideFlags: 1
