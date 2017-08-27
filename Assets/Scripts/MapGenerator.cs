@@ -16,6 +16,7 @@ public class MapGenerator : MonoBehaviour
         public Sprite Sprite;
         public bool Collision;
         public GameObject Obstacle;
+        public bool Visible;
     }
 
     void Start()
@@ -41,6 +42,11 @@ public class MapGenerator : MonoBehaviour
                 {
                     var obstacle = Instantiate(conf.Obstacle, tile.transform);
                     obstacle.transform.localPosition = Vector3.zero;
+                }
+
+                if(conf.Visible == false)
+                {
+                    tile.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
                 }
             }
         }
