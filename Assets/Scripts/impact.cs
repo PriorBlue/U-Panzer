@@ -62,7 +62,7 @@ public class impact : MonoBehaviour {
                     // Destroy tanks
                     tankScript.Destruction();
                 }
-                else Destroy(other.gameObject);
+                else Destroy(HitableComp.ObjToRemove);
             }
             
             // Destroy Projectile
