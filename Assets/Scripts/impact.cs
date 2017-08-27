@@ -21,10 +21,11 @@ public class impact : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        TankMovementScript tankScript = other.gameObject.GetComponent<TankMovementScript>();
+
         if (other.gameObject.tag == "Tank")
         {
             // obst.isShaking = true;
-            TankMovementScript tankScript = other.gameObject.GetComponent<TankMovementScript>();
             tankScript.MakeVisible();
 
         }
@@ -53,20 +54,14 @@ public class impact : MonoBehaviour {
                 damageRemain -= absorb;
             }
 
-
             if (HitableComp.health > damageRemain * Ballisitcs.healthmod)
-            { HitableComp.shield -= damageRemain * Ballisitcs.healthmod; }
+            {
+                HitableComp.shield -= damageRemain * Ballisitcs.healthmod;
+            }
             else
             {
-                Destroy(HitableComp.gameObject);
-                // Explode!
-                // Burn in hell!
-                // Game over!
-
+                tankScript.Destruction();
             }
-
-
-
         }
 
         Destroy(transform.root.gameObject);
