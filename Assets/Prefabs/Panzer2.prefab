@@ -306,6 +306,8 @@ MonoBehaviour:
   health: 100
   armor: 0
   shield: 0
+  ObjToRemove: {fileID: 0}
+  ShieldHalo: {fileID: 0}
 --- !u!114 &114207594951039936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +368,8 @@ MonoBehaviour:
     Prefab: {fileID: 1795859161593018, guid: fabcf37013b302e488c69625b76e4e53, type: 2}
   - Type: 3
     Prefab: {fileID: 1230116160004968, guid: cb862731d73282b4b95fe5703dc23f92, type: 2}
+  maxAccel: 2
+  maxTorque: 0.2
   tankDestroyedAudio: {fileID: 8300000, guid: 4d063f84351104eb0903cfad8ea13db4, type: 3}
   tankHitAudio: {fileID: 8300000, guid: 05b374f2a399c47769dddddab9bddf27, type: 3}
   forwardKey: 273

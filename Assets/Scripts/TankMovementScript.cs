@@ -31,9 +31,10 @@ public class TankMovementScript : MonoBehaviour {
 	static float canonLength = 1.8f;
 	static float fadeRate = 1.0f;
 	static float healthInit = 1.0f;
-	static float maxAccel = 1.0f;
-	static float maxSpeed = 1.0f;
-	static float timeVisibleInit = 1.0f;
+    public float maxAccel = 1.0f;
+    public float maxTorque = 1.0f;
+
+    static float timeVisibleInit = 1.0f;
 
 	public AudioClip tankDestroyedAudio;
 	public AudioClip tankHitAudio;
@@ -88,10 +89,10 @@ public class TankMovementScript : MonoBehaviour {
 
 		// Compute torques
 		if (Input.GetKey (leftKey)) {
-			torque = 1.0f;
+			torque = maxTorque;
 		}
 		else if (Input.GetKey (rightKey)) {
-			torque = -1.0f;
+			torque = -maxTorque;
 		}
 		else {
 			torque = 0.0f;
