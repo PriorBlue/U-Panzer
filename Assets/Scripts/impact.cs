@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class impact : MonoBehaviour {
 
-
-
     public BallisticProps Ballisitcs;
 
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -26,8 +23,7 @@ public class impact : MonoBehaviour {
         if (other.gameObject.tag == "Tank")
         {
             // obst.isShaking = true;
-            tankScript.MakeVisible();
-
+            tankScript.HitByProjectile();
         }
         
         Hitable HitableComp  = other.gameObject.GetComponent<Hitable>();

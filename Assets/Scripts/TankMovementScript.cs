@@ -36,6 +36,8 @@ public class TankMovementScript : MonoBehaviour {
 	static float maxSpeed = 1.0f;
 	static float timeVisibleInit = 1.0f;
 
+	public AudioClip tankDestroyedAudio;
+	public AudioClip tankHitAudio;
 	public KeyCode forwardKey;
 	public KeyCode backwardKey;
 	public KeyCode leftKey;
@@ -49,12 +51,14 @@ public class TankMovementScript : MonoBehaviour {
 	private TankState state;
 	private Rigidbody2D rb;
 	private SpriteRenderer spriteRenderer;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
+		audioSource          = GetComponent<AudioSource> ();
 		rb                   = GetComponent<Rigidbody2D> ();
 		spriteRenderer       = GetComponent<SpriteRenderer> ();
-		CurrentProjectile       = ProjectileType.Std;
+		CurrentProjectile    = ProjectileType.Std;
 		state                = TankState.alive;
 		alphaLevel           = 1.0f;
 		tFire                = 0.0f;
@@ -69,7 +73,7 @@ public class TankMovementScript : MonoBehaviour {
 	    // If tank is dead, then set to dead colour
 		if (state == TankState.dead) {
 			colour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-			spriteRenderer.color = new Color (colour.r, colour.g, colour.b, alphaLevel);
+			spriteRenderer.color = Color.gray;
 			return;
 		}
 			
@@ -132,13 +136,23 @@ public class TankMovementScript : MonoBehaviour {
 	}
 
 
+	public void HitByProjectile() {
+		MakeVisible ();
+		audioSource.PlayOneShot (tankHitAudio);
+	}
+
+
 	public void MakeVisible() {
 		alphaLevel += 0.5f;
 		alphaLevel = Mathf.Max (0.0f, alphaLevel);
 	}
 
+
     public void Destruction()
     {
-        state = TankState.dead;
+		if (state == TankState.alive) {
+			state = TankState.dead;
+			audioSource.PlayOneShot (tankDestroyedAudio);
+		}
     }
 }
