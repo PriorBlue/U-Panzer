@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallisticProps : MonoBehaviour {
 
 
+	public AudioClip audioClip;
 	public float mass = 0.1f;
 	public float speed = 10.0f;
     public float damage = 25.0f;
