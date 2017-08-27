@@ -58,7 +58,7 @@ public class impact : MonoBehaviour {
             { HitableComp.shield -= damageRemain * Ballisitcs.healthmod; }
             else
             {
-                
+                Destroy(HitableComp.gameObject);
                 // Explode!
                 // Burn in hell!
                 // Game over!
