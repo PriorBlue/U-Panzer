@@ -56,7 +56,7 @@ public class impact : MonoBehaviour {
 
             if (HitableComp.health > damageRemain * Ballisitcs.healthmod)
             {
-                HitableComp.shield -= damageRemain * Ballisitcs.healthmod;
+                HitableComp.health -= damageRemain * Ballisitcs.healthmod;
             }
             else
             {
